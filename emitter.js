@@ -92,6 +92,10 @@ Emitter.prototype.on = function (event, callback) {
         callbacks.push(callback);
     }
 
+    if ( callbacks.reemit ) {
+        this.reemit.apply(this, [event].concat(callbacks.reemit));
+    }
+
     return this;
 };
 
@@ -228,6 +232,27 @@ Emitter.prototype.trigger = function (event) {
  */
 
 Emitter.prototype.emit = Emitter.prototype.trigger;
+
+/**
+ * Make event reemittable
+ *
+ * Emit the event and also make sure for callback gets added in the future will be called directly with specified arguments
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+Emitter.prototype.reemit = function(event) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var callbacks = this.getListeners(event);
+
+    this.emit.apply(this, arguments);
+    // clear the callback as we don't need it anymore
+    callbacks.length = 0;
+    callbacks.reemit = args;
+
+    return this;
+};
 
 /**
  * Basic Array.indexOf utility

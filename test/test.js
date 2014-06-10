@@ -198,4 +198,25 @@ describe('Emitter', function () {
             });
         });
     });
+
+    describe('.reemit(event, args)', function () {
+        it('fires an event\'s callback', function () {
+            var calls = [];
+            var foo = function foo() { calls.push('foo'); };
+
+            emitter.on('foo', foo);
+            emitter.reemit('foo');
+
+            expect(calls).to.eql(['foo']);
+        });
+        it('automatically fires an event\'s callback which be added after the first firing', function () {
+            var calls = [];
+            var foo = function foo() { calls.push('foo'); };
+
+            emitter.reemit('foo');
+            emitter.on('foo', foo);
+
+            expect(calls).to.eql(['foo']);
+        });
+    });
 });

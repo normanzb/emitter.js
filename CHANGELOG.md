@@ -1,5 +1,9 @@
 === HEAD
 
+=== 1.1.1 (June 10, 2014)
+
+* Add reemit method
+
 === 1.1.0 (December 8, 2013)
 
 * Allow unregistered events to be triggered.
