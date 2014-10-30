@@ -1,15 +1,15 @@
-# emitter.js
+# reemitter.js
 
 [![Build Status](https://secure.travis-ci.org/necolas/emitter.js.png?branch=master)](http://travis-ci.org/necolas/emitter.js)
 
-JavaScript event-emitter.
+JavaScript event-emitter based on necolas's version with some innovation.
 
 ## Installation
 
 Install with [Bower](http://bower.io):
 
 ```
-bower install --save emitter.js
+bower install --save reemitter.js
 ```
 
 The component can be used as a Node.js module, an AMD module, or a global.
@@ -88,9 +88,9 @@ foo.off('foo');
 foo.off();
 ```
 
-### Emitter#trigger(event, [...])
+### Emitter#emit(event, [...])
 
-Trigger an `event` with optional arguments. Alias: `emit`.
+Trigger an `event` with optional arguments. Alias: `trigger`.
 
 ```js
 var data = { name: 'nicolas' };
@@ -112,6 +112,15 @@ Check if any callbacks are registered for the `event`.
 
 ```js
 foo.hasListeners('foo');
+```
+
+### Emittter#reemit(event, [...])
+
+Trigger the event and also make sure for callbacks get registered later will be called directly with the arguments
+
+```js
+var data = { name: 'nicolas' };
+foo.trigger('foo', data);
 ```
 
 ## Testing
