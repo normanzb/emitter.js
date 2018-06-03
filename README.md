@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/necolas/emitter.js.png?branch=master)](http://travis-ci.org/necolas/emitter.js)
 
-JavaScript event-emitter based on necolas's version with some innovation.
+JavaScript event-emitter based on necolas's version with some innovations.
 
 ## Installation
 

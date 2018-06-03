@@ -1,7 +1,8 @@
 {
   "name": "reemitter.js",
   "description": "JavaScript event emitter",
-  "version": "1.1.1",
+  "main": "emitter.js",
+  "version": "1.1.2",
   "devDependencies": {
     "chai": "~1.8.1",
     "mocha": "~1.15.1"
