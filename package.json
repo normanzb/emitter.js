@@ -8,6 +8,9 @@
     "mocha": "~1.15.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --no-colors --reporter spec"
+    "test": "./node_modules/.bin/mocha --no-colors --reporter spec",
+    "preversion": "npm i && npm run test && npm run build",
+    "build": "echo nothing for now",
+    "postversion": "git push && git push --tags"
   }
 }

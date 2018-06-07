@@ -247,8 +247,6 @@ Emitter.prototype.reemit = function(event) {
     var callbacks = this.getListeners(event);
 
     this.emit.apply(this, arguments);
-    // clear the callback as we don't need it anymore
-    callbacks.length = 0;
     callbacks.reemit = args;
 
     return this;
