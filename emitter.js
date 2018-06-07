@@ -93,7 +93,7 @@ Emitter.prototype.on = function (event, callback) {
     }
 
     if ( callbacks.reemit ) {
-        this.reemit.apply(this, [event].concat(callbacks.reemit));
+        callback.apply(this, callbacks.reemit);
     }
 
     return this;
